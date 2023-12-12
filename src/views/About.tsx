@@ -18,23 +18,25 @@ import { fadeIn, scale } from "../utils/variants";
 import { transition } from "../utils/transition";
 
 const About = () => {
-  return <div 
-  id="about" 
-  className="min-h-screen flex items-center justify-center relative"
-  style={{
-    background:`url(${souls})`,
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-  }}
-  >
-   <div 
-    className="max-w-screen-2xl flex flex-col xl:flex-row xl:justify-between items-center xl:items-start gap-12 w-full py-16 px-12"
-   >
-      <div className="flex-1 flex flex-col gap-4">
-          <h2 
-            className="text-center xl:text-start text-4xl sm:text-5xl lg:text-[64px] font-bold text-textPrimary"
-          > 
+  // Define las URLs de tus perfiles de redes sociales
+  const linkedinUrl = "https://www.linkedin.com/in/elian-gonzalo-montenegro/";
+  const githubUrl = "https://github.com/EMontenegro01";
+  const instagramUrl = "https://www.instagram.com/elian.monte/";
+
+  return (
+    <div
+      id="about"
+      className="min-h-screen flex items-center justify-center relative"
+      style={{
+        background: `url(${souls})`,
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
+    >
+      <div className="max-w-screen-2xl flex flex-col xl:flex-row xl:justify-between items-center xl:items-start gap-12 w-full py-16 px-12">
+        <div className="flex-1 flex flex-col gap-4">
+          <h2 className="text-center xl:text-start text-4xl sm:text-5xl lg:text-[64px] font-bold text-textPrimary">
             Sobre <span className="text-secondary">Mi</span>
           </h2>
           <p className="text-center xl:text-start text-base sm:text-lg text-textSecondary">
@@ -42,24 +44,31 @@ const About = () => {
           </p>
 
           <div className="flex items-center justify-center xl:justify-start gap-6">
-            <SocialMediaIcon imgSrc={linkedinIcon} title="LinkedIn" />
-            <SocialMediaIcon imgSrc={githubIcon} title="Github" />
-            <SocialMediaIcon imgSrc={instagramIcon} title="Instagram" />
-          </div>       
-      </div>
-
-      <div className="flex-1 flex items-center justify-center">
-            <img 
-              src={astro4} 
-              alt="" 
-              className="max-w-full sm:max-w-[401px]" 
-              />
+            {/* Enlace a LinkedIn */}
+            <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
+              <SocialMediaIcon imgSrc={linkedinIcon} title="LinkedIn" />
+            </a>
             
-      </div>
-   </div>
+            {/* Enlace a GitHub */}
+            <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+              <SocialMediaIcon imgSrc={githubIcon} title="Github" />
+            </a>
 
-   <div className="absolute bottom-0 left-0 w-full h-[1px] bg-divider"></div>
-  </div>;
+            {/* Enlace a Instagram */}
+            <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
+              <SocialMediaIcon imgSrc={instagramIcon} title="Instagram" />
+            </a>
+          </div>
+        </div>
+
+        <div className="flex-1 flex items-center justify-center">
+          <img src={astro4} alt="" className="max-w-full sm:max-w-[401px]" />
+        </div>
+      </div>
+
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-divider"></div>
+    </div>
+  );
 };
 
 export default About;
