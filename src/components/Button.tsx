@@ -1,4 +1,3 @@
-// react
 import { FC, ReactNode } from "react";
 
 interface ButtonProps {
@@ -6,15 +5,19 @@ interface ButtonProps {
   secondary?: boolean;
   icon?: string;
   onClick?: () => void;
-  type?: "button" | "submit" | "reset"; // Agregamos la prop 'type'
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean; // Agregamos la prop 'disabled'
 }
 
-const Button: FC<ButtonProps> = ({ children, secondary, icon, onClick, type = "button" }) => {
+const Button: FC<ButtonProps> = ({ children, secondary, icon, onClick, type = "button", disabled = false }) => {
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`${secondary ? "bg-secondary" : "bg-accent"} ${
+      disabled={disabled}
+      className={`${
+        secondary ? "bg-secondary" : "bg-accent"
+      } ${disabled ? "cursor-not-allowed opacity-50" : ""} ${
         secondary ? "hover:bg-hoverSecondary" : "hover:bg-hoverPrimary"
       } transition-all ease-linear duration-300 py-2.5 px-8 rounded-full text-white text-base sm:text-lg text-bold relative w-full sm:w-fit`}
     >

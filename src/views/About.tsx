@@ -4,8 +4,8 @@ import aboutIllustration from "../assets/about-illustration.svg";
 import linkedinIcon from "../assets/linkedin-icon.svg"
 import instagramIcon from "../assets/instagram-icon.svg";
 import githubIcon from "../assets/github-icon.svg"
-
-
+import souls from "../assets/canva11.png"
+import astro4 from "../assets/astro4.png"
 
 // components
 import { SocialMediaIcon, Reveal } from "../components";
@@ -22,7 +22,7 @@ const About = () => {
   id="about" 
   className="min-h-screen flex items-center justify-center relative"
   style={{
-    background:`url(${aboutPageImg})`,
+    background:`url(${souls})`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
@@ -38,7 +38,7 @@ const About = () => {
             Sobre <span className="text-secondary">Mi</span>
           </h2>
           <p className="text-center xl:text-start text-base sm:text-lg text-textSecondary">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore nisi dolorem veritatis? Quidem asperiores qui ratione laboriosam similique autem totam possimus eaque! Eveniet, expedita quasi modi eius tenetur placeat ipsum.
+          Desarrollador FullStack Junior con experiencia en tecnologías web actuales. Enfocado en crear aplicaciones atractivas y funcionales que mejoren la experiencia del usuario y aborden desafíos empresariales. Comprometido con el aprendizaje continuo y al tanto de las últimas tendencias tecnológicas. Apasionado por contribuir a proyectos innovadores y con impacto positivo. Habilidades: JavaScript, React, Redux, NodeJS, Express, HTML, CSS, SQL. Listo para aportar valor y adaptarse a un entorno tecnológico en constante evolución.
           </p>
 
           <div className="flex items-center justify-center xl:justify-start gap-6">
@@ -50,7 +50,7 @@ const About = () => {
 
       <div className="flex-1 flex items-center justify-center">
             <img 
-              src={aboutIllustration} 
+              src={astro4} 
               alt="" 
               className="max-w-full sm:max-w-[401px]" 
               />

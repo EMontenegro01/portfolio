@@ -17,8 +17,47 @@ import { motion } from "framer-motion";
 // utils
 import { transition } from "../utils/transition";
 import { fadeIn, scale } from "../utils/variants";
+const pdfUrl = "/cv.pdf";
 
-const Hero = () => {
+
+interface HeroProps {
+  scrollToContact: () => void;
+}
+const Hero: React.FC<HeroProps> = ({ scrollToContact }) => {
+  const handleDownloadCV = async () => {
+    try { 
+      // Realizar una solicitud de red para obtener el archivo PDF
+      console.log('Ruta del PDF:', pdfUrl);
+
+      const response = await fetch(pdfUrl);
+  
+      // Verificar si la solicitud fue exitosa
+      if (!response.ok) {
+        console.error(`Error al descargar el archivo. Código de estado: ${response.status}`);
+        return;
+      }
+  
+      // Convertir el archivo PDF en un objeto Blob
+      const blob = await response.blob();
+  
+      // Crear un enlace temporal para descargar el archivo
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "ElianMontenegro_CV.pdf";  // Nombre del archivo para la descarga
+      document.body.appendChild(a);
+      a.click();
+  
+      // Limpiar el enlace y liberar recursos
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+  
+      console.log('Descarga del CV exitosa');
+    } catch (error) {
+      console.error('Error al descargar el CV', error);
+    }
+  };
+  
   return <div id="home" className="min-h-screen flex items-center justify-center relative"
   style={{
     background:`url(${souls})`,
@@ -46,8 +85,14 @@ const Hero = () => {
           </span>
         </h1>
         <div className="my-12 flex flex-col sm:flex-row items-center gap-6 justify-center xl:justify-center xl:justify-start">
-            <Button secondary>Trabajemos Juntos!</Button>
-            <Button icon={downloadIcon}> Descargar CV</Button>
+            <Button secondary onClick={scrollToContact}>Trabajemos Juntos!</Button>
+            <Button
+              icon={downloadIcon}
+              onClick={handleDownloadCV}
+            >
+              Descargar CV
+            </Button>
+
         </div>
       </div>
 

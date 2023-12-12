@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 // assets
-import projectsPageImg from "../assets/projects-page.svg";
+import souls from "../assets/canva11.png"
 
 // components
 import { Button, Card, Reveal } from "../components";
@@ -34,7 +34,7 @@ const Projects = () => {
         id="project" 
         className="min-h-screen relative" 
         style={{
-          background:`url(${projectsPageImg})`,
+          background:`url(${souls})`,
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
@@ -45,7 +45,7 @@ const Projects = () => {
             <h2 
                 className="text-center xl:text-start text-4xl sm:text-5xl lg:text-[64px] font-bold text-textPrimary"
               > 
-                Mis recientes <span className="text-secondary">proyectos</span>
+                Mis proyectos <span className="text-secondary">recientes</span>
               </h2>
 
               <div className="flex items-center gap-4 justify-center xl:justify-start flex-col sm:flex-row">
